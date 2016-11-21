@@ -21,7 +21,6 @@
         %textarea{name: 'comment[content]'}
         %input{type: 'hidden', name: 'comment[listing_id]', value: listing.id}
         =submit_tag 'Submit', class: 'btn btn-warning'
-    .col-xs-6
       - listing.comments.each do |comment|
         .col-xs-3
           %h3= comment.user.full_name
