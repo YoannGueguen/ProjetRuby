@@ -1,0 +1,12 @@
+.row
+  .col-xs-8.col-xs-offset-2
+    %ul.nav.nav-tabs
+      %li{:class => "#{'active' if params[:controller]=="/account/contacts"}", :role => "presentation"}
+        = link_to account_contacts_path do
+          %span My Contacts
+      %li{:class => "#{'active' if params[:controller]=="/account/messages"}", :role => "presentation"}
+        = link_to account_messages_path do
+          %span My Messages
+      %li{:class => "#{'active' if params[:controller]=="/account/user"}", :role => "presentation"}
+        = link_to account_user_index_path do
+          %span My Profile

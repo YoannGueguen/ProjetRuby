@@ -1,0 +1,31 @@
+- @listings.each do |listing|
+  .row
+    .col-xs-2
+      %p= listing.title
+      %p= listing.created_at
+      %p
+      = link_to listing_path(id: listing.id) do
+        = image_tag listing.picture, width: 150
+    .col-xs-4
+      %p= listing.content
+    .col-xs-2
+      %p= "#{listing.price}€"
+    .col-xs-2
+      %p= link_to "#{listing.category.name}", listings_path(category_id: listing.category_id), class: "category"
+    .col-xs-2
+      %div.btn.waves-effect.waves-light= link_to 'contact', listing_contact_path, data: {do: 'showContactModal', user: "#{current_user.try(:id)}", id: listing.id}
+      %br
+  .row
+    .col-xs-12
+      = form_tag account_comments_path do
+        %textarea{name: 'comment[content]'}
+        %input{type: 'hidden', name: 'comment[listing_id]', value: listing.id}
+        =submit_tag 'Submit', class: 'btn btn-warning'
+    .col-xs-6
+      - listing.comments.each do |comment|
+        .col-xs-3
+          %h3= comment.user.full_name
+        .col-xs-3
+          %h3= comment.content
+        %br
+__________________________________________________________________

@@ -1,0 +1,11 @@
+.container
+  .row.top
+    .col-xs-2
+      %h1.title= link_to "Listings", root_path
+    .col-xs-10.pull-right
+      = locale_select(I18n.locale)
+      - if current_user
+        = link_to 'New listing', new_listing_path, :class => 'btn waves-effect waves-light'
+        .pull-right.btn.waves-effect.waves-light= link_to "log out", destroy_user_session_path, data: {method:"delete"}
+      - else
+        .pull-right.btn.waves-effect.waves-light= link_to "log in", new_user_session_path, data: {method:"get"}

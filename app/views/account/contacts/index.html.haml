@@ -1,0 +1,18 @@
+.row
+  .col-xs-10.col-xs-offset-1
+    %table.table.table-striped
+      %thead
+        %tr
+          %th{:style => "width: 60px"} Images
+          %th{:style => "width: 60px"} Price
+          %th{:style => "width: 200px"} Date
+          %th Message
+      %tbody
+        - @contacts.each do |contact|
+          %tr
+            %td
+              - if contact.listing.picture
+                = image_tag contact.listing.picture, width:50, height:50, class:'img-responsive'
+            %td= "€ #{contact.listing.price}"
+            %td= l(contact.created_at)
+            %td= contact.content

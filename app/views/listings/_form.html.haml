@@ -1,0 +1,27 @@
+= form_for @listing, mulripart: true do |f|
+  - if @listing.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@listing.errors.count, "error")} prohibited this task from being saved:"
+      %ul
+        - @listing.errors.full_messages.each do |msg|
+          %li= msg
+
+  .input-field
+    = f.label :title
+    = f.text_field :title
+  .input-field
+    = f.label :content
+    = f.text_area :content, :class => 'materialize-textarea'
+  .input-field
+    = f.label :picture
+    = f.file_field :picture
+  .input-field
+    = f.label :price
+    = f.text_area :price
+  .input-field
+    = f.label :category_id
+    %select{name: 'listing[category_id]'}
+      -Category.all.each do |cat|
+        %option{value: cat.id}= cat.name
+  .actions
+    = f.submit 'Save', :class => 'btn waves-effect waves-light'
