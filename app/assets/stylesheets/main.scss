@@ -11,11 +11,11 @@ h1, h2, h3 {
   color: #000;
 }
 table tr td {
-  color: #000;
+  color: #aaa;
 }
 table tr th {
   background-color: #2b3e50;
-  color: #fff;
+  color: #aaa;
 }
 form .description {
   height: 200px;
@@ -28,6 +28,13 @@ form.busy {
   top: 0;
   left: 0;
   height: 60px;
+  width: 100%;
+  background-color: rgba(43, 62, 80, 0.8);
+  z-index: 100;
+}
+.footer {
+  position: fixed;
+  top: 800px;
   width: 100%;
   background-color: rgba(43, 62, 80, 0.8);
   z-index: 100;

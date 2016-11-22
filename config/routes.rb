@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
     post '/listings/contact', to: 'listings#contact', as: 'listing_contact'
     resources :listings
+    resources :foots
+    resources :legals
+    
 
     namespace :account do
       root 'messages#index'
